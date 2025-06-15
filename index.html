@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kagumi Coffee</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <link rel="icon" href="image/kagumi.png">
+  <script src="app.js"></script>
+</head>
+<body>
+
+  <header class="header">
+    <a href="#" class="logo">KAGUMI <span>CAFFEE</span></a>
+    <div class="icons">
+      <div class="fas fa-shopping-cart" id="cart-btn"></div>
+    </div>
+  </header>
+
+  <!-- Category -->
+  <section id="category">
+    <div class="category-heading">
+      <h2>Category</h2>
+      <span>All</span>
+    </div>
+    <div class="category-container">
+      <a href="#" class="category-box" data-category="all"><img src="image/coffee-cup.png" alt=""><span>All</span></a>
+      <a href="#" class="category-box" data-category="espresso"><img src="image/expresso1.png" alt=""><span>Espresso Based</span></a>
+      <a href="#" class="category-box" data-category="flavor"><img src="image/coffee-cup.png" alt=""><span>Coffee Flavors</span></a>
+      <a href="#" class="category-box" data-category="powder"><img src="image/coffee-cup.png" alt=""><span>Powder Based</span></a>
+      <a href="#" class="category-box" data-category="tea"><img src="image/tea.png" alt=""><span>Tea Series</span></a>
+      <a href="#" class="category-box" data-category="brew"><img src="image/coffee-cup.png" alt=""><span>Manual Brewing</span></a>
+      <a href="#" class="category-box" data-category="snack"><img src="image/nachos.png" alt=""><span>Snack</span></a>
+    </div>
+  </section>
+
+  <!-- Products -->
+<section id="products" x-data="dropdown">
+  <div class="products-heading">
+    <h2>Our Products</h2>
+    <span id="view-all-text"></span>
+  </div>
+  
+  <div class="products-container">
+    <template x-for="product in filteredProducts" :key="product.name">
+      <div class="product-box" :data-category="product.category">
+        <img :src="product.image" :alt="product.name">
+        <h3 x-text="product.name"></h3>
+        <span class="price" x-text="rupiah(product.price)"></span>
+        <div class="product-buttons">
+          <a href="#" class="add-to-cart">Tambah</a>
+        </div>
+      </div>
+    </template>
+  </div>
+</section>
+
+  <!-- Cart Sidebar -->
+  <main>
+  <div class="sidebar" id="sidebar">
+    <div class="sidebar-close">
+      <i class="fa-solid fa-close"></i>
+    </div>
+    <div class="cart-menu">
+      <h2>My Cart</h2>
+      <div class="cart-items-container" id="cart-items-container">
+        <!-- Cart items will be inserted here by JavaScript -->
+      </div>
+    </div>
+    <div class="sidebar--footer">
+      <div class="customer-info">
+        <div class="form-group">
+          <label for="customer-name">Nama Pembeli</label>
+          <input type="text" id="customer-name" id="name" placeholder="Masukkan nama Anda">
+        </div>
+      </div>
+      <div class="total--amount">
+        <h2>Total</h2>
+        <div class="cart-total">Rp. 0</div>
+      </div>
+      <button class="checkout-btn" disabled>Mulai Pembayaran</button>
+    </div>
+  </div>
+</main>
+
+  <!-- Templates -->
+  <template id="empty-cart-template">
+    <p class="empty-cart-message">Anda Belum Memasukan Pesanan</p>
+  </template>
+
+  <template id="cart-item-template">
+    <div class="cart-item">
+      <div class="cart-item-image">
+        <img src="" alt="" style="width: 50px; height: 50px; object-fit: cover; border-radius: 5px;">
+      </div>
+      <div class="cart-item-info">
+        <h4></h4>
+        <div class="cart-item-price"></div>
+      </div>
+      <div class="cart-item-actions">
+        <button class="remove-item" data-id="">
+          <i class="fas fa-minus"></i>
+        </button>
+        <span class="item-quantity"></span>
+        <button class="add-item" data-id="">
+          <i class="fas fa-plus"></i>
+        </button>
+      </div>
+    </div>
+  </template>
+
+  
+  <script src="script.js"></script>
+</body>
+</html>

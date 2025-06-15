@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pembayaran - Kagumi Coffee</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="image/kagumi.png">
+</head>
+<body>
+  <div class="payment-container">
+    <h1>Pembayaran</h1>
+    
+    <!-- Tombol Kembali -->
+    <div class="back-to-order">
+      <a href="index.html" class="back-btn">
+        <i class="fas fa-arrow-left"></i> Kembali
+      </a>
+    </div>
+    
+    <div class="payment-method">
+      <h2>Metode Pembayaran</h2>
+      <div class="qris-container">
+        <img src="image/qrcode.png" alt="QRIS Pembayaran" class="qris-image">
+      </div>
+    </div>
+    
+    <div class="payment-instruction">
+      <p>Kirim bukti pembayaran Anda dengan klik verifikasi pembayaran</p>
+      <button class="verify-btn" id="verify-btn">
+        Verifikasi Pembayaran
+      </button>
+    </div>
+  </div>
+
+  <script src="payment.js"></script>
+</body>
+</html>
